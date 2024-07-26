@@ -7,6 +7,11 @@ import requests
 app = FastAPI()
 
 
+@app.get("/")
+def read_root():
+    return "The health check is successful"
+
+
 @app.get("/ocr")
 def extract_text(url: Union[str, None] = None):
     if url is None:
